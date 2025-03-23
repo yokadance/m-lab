@@ -1,8 +1,4 @@
-# fly.toml app configuration file generated for website-blue-frog-7323 on 2025-03-22T14:05:13-03:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
+# fly.toml app configuration file
 app = 'website-blue-frog-7323'
 primary_region = 'gru'
 

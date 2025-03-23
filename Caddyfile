@@ -1,0 +1,19 @@
+:8080 {
+    # Enable Gzip compression
+    encode gzip
+
+    # Set the root directory
+    root * /srv
+
+    # Handle 404 errors
+    handle_errors {
+        rewrite * /404.html
+        file_server
+    }
+
+    # Enable SPA mode (handle client-side routing)
+    try_files {path} /index.html
+
+    # Serve static files
+    file_server
+}

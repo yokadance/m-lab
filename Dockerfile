@@ -1,16 +1,14 @@
-FROM nginx:alpine
+FROM caddy:alpine
 
-# Crear el directorio de archivos estáticos
-RUN mkdir -p /usr/share/nginx/html
+# Create the directory for site files
+WORKDIR /srv
 
-# Copiar el archivo de configuración personalizado de Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy the site files
+COPY site/ /srv/
 
-# Copiar los archivos del sitio al directorio correcto
-COPY site/ /usr/share/nginx/html/
+# Copy the Caddyfile configuration
+COPY Caddyfile /etc/caddy/Caddyfile
 
-# Exponer el puerto
+# Expose port 8080
 EXPOSE 8080
 
-# Comando de inicio de Nginx
-CMD ["nginx", "-g", "daemon off;"]
